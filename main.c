@@ -111,7 +111,7 @@ int main(int argc, char *argv[])
 	
 	stop = clock();
 
-	printf("Time taken to execute the program: %lf seconds\n", difftime(stop, start) / 1000);
+	printf("Time taken to execute the program: %.3lf seconds\n", difftime(stop, start) / 1000);
 	
 	return 0;
 }
