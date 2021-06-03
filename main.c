@@ -80,7 +80,8 @@ int main(int argc, char *argv[])
 	}
 	
 	stop = clock();
-	printf("Time taken to execute the program: %.0lfms\n", difftime(stop, start));
+
+	printf("Time taken to execute the program: %lf seconds\n", difftime(stop, start) / 1000);
 	
 	return 0;
 }
