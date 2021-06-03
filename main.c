@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
 	// Считываем дату из файла и помещаем значения в три промежуточные переменные
 	fscanf(in, "%d.%d.%d", &mday, &mon, &year);
 	
-	// Далее происходят действа, которое я пока не готов грамотно описать
+	// Далее происходят действа, которые я пока не готов грамотно описать
 	
 	time(&timeA); time(&timeB);
     
@@ -71,6 +71,7 @@ int main(int argc, char *argv[])
 	
 	// Считываем размеры матриц из консоли
 	
+	printf("Enter dimensions for the matrixes: ");
 	scanf("%d %d", &N, &M);
 	
 	// Инициализируем матрицы и выделяем под них память
@@ -89,10 +90,6 @@ int main(int argc, char *argv[])
 	// Генерируем матрицы до тех пор, пока суммы их элементов не совпадут
 	
 	while(generate_matrix(matrix1, N, M) != generate_matrix(matrix2, N, M));
-	
-	// Есть совпадение!
-	
-	printf("Match!\n");
 	
 	// Выписываем в output.txt значения первой матрицы
 	
