@@ -45,7 +45,6 @@ int main(int argc, char *argv[])
 	}
 	
 	// Считываем дату из файла и помещаем значения в три промежуточные переменные
-	printf("Enter dimensions for the matrixes: ");
 	fscanf(in, "%d.%d.%d", &mday, &mon, &year);
 	
 	// Далее происходят действа, которые я пока не готов грамотно описать
