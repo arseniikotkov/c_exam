@@ -30,6 +30,39 @@ int main(int argc, char *argv[])
 	clock_t start, stop; 
 	start = clock();
 	
+	// Инициализируем переменные для расчёта времени между двумя датами
+	time_t timeA, timeB;
+    	struct tm tA, tB, *tptr;
+	int mday, mon, year;
+	
+	// Инициализируем указатель на файл input.txt,
+	// из которого будет считана дата, до которой нужно рассчитать количество дней
+	FILE *in = fopen("input.txt", "r");
+	if(in == NULL)
+	{
+		printf("Failed to open input.txt\n");
+		exit(0);
+	}
+	
+	// Считываем дату из файла и помещаем значения в три промежуточные переменные
+	fscanf(in, "%d.%d.%d", &mday, &mon, &year);
+	
+	// Далее происходят действа, которое я пока не готов грамотно описать
+	
+	time(&timeA); time(&timeB);
+    
+	tptr = localtime(&timeA); tA = *tptr;
+	tptr = localtime(&timeB); tB = *tptr;
+
+	tB.tm_mday = mday;
+	tB.tm_mon = mon-1;
+	tB.tm_year = year-1900;
+
+	timeA = mktime(&tA);
+	timeB = mktime(&tB);
+
+	printf ("Days from now before %d.%d.%d: %.0lf days\n", mday, mon, year, difftime(timeB, timeA) / 86400);
+	
 	// Инициализируем указатель на файл output.txt,
 	// в который будут выписаны будущие матрицы
 	FILE *out = fopen("output.txt", "w");
